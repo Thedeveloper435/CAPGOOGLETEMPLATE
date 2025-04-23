@@ -3,7 +3,8 @@
 This assumes you have: 
 1) Installed Visual Studio Code. (Which is what you are using to look at this file now)
 2) installed Git (https://github.com/git-guides/install-git)
-    Git *NOT* github desktop.
+    Git *NOT* github desktop.conda install flask numpy pandas
+
 4) Installed Anaconda - https://www.anaconda.com/products/individual
 5) Setup your secrets.py file inside the utils folder with your MongoDB credentials and
     your Google Project credentials
