@@ -13,8 +13,9 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
-    role = SelectField('Role',choices=[("Teacher","Teacher"),("Student","Student")])
-
+    role = SelectField('Role',choices=[("Player","Player"),("Team Captain","Team Captain")], validators=[DataRequired()]))
+    league_category = SelectField('League Category',choices=[("Rec","Rec"),("Comp","Comp"),("College", "College")], validators=[DataRequired()])
+    age = IntegerField('Age')
 
 class BlogForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
