@@ -36,7 +36,8 @@ def profileEdit():
             fname = form.fname.data,
             role = form.role.data,
             age = form.age.data,
-            league_category = form.league_category.data
+            league_category = form.league_category.data,
+            location = form.location.data
         )
 
         # This updates the profile image

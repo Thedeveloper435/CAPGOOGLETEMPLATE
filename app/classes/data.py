@@ -23,7 +23,7 @@ from functools import wraps
 
 
 class User(UserMixin, Document):
-    createdate = DateTimeField(defaultdefault=dt.datetime.utcnow)
+    createdate = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
     gid = StringField(sparse=True, unique=True)
     gname = StringField()
     gprofile_pic = StringField()
@@ -33,6 +33,11 @@ class User(UserMixin, Document):
     email = EmailField()
     image = FileField()
     prononuns = StringField()
+    role = StringField()
+    league_category = StringField()
+    location = StringField()
+    age = IntField()
+
 
     meta = {
         'ordering': ['lname','fname']
@@ -43,8 +48,8 @@ class Blog(Document):
     subject = StringField()
     content = StringField()
     tag = StringField()
-    create_date = DateTimeField(default=dt.datetime.utcnow)
-    modify_date = DateTimeField()
+    create_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
+    modify_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
 
 
     meta = {
@@ -59,8 +64,8 @@ class Comment(Document):
     comment = ReferenceField('Comment',reverse_delete_rule=CASCADE)
     # Line 68 is where you store all the info you need but won't find in the Course and Teacher Object
     content = StringField()
-    create_date = DateTimeField(default=dt.datetime.utcnow)
-    modify_date = DateTimeField()
+    create_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
+    modify_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
 
     meta = {
         'ordering': ['-createdate']
@@ -68,7 +73,7 @@ class Comment(Document):
 
 class Clinic(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
-    createdate = DateTimeField(default=dt.datetime.utcnow)
+    createdate = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
     modifydate = DateTimeField()
     name = StringField()
     streetAddress = StringField()
@@ -78,7 +83,12 @@ class Clinic(Document):
     description = StringField()
     lat = FloatField()
     lon = FloatField()
-    
+    location = StringField()
+    availability = StringField()
+    quality = StringField()
+    capacity = IntField()
+    schedule = ListField()
+    image = FileField()
     meta = {
         'ordering': ['-createdate']
     }
@@ -89,9 +99,8 @@ class Review(Document):
     subject = StringField()
     text = StringField()
     rating = IntField()
-    subject = StringField()
-    create_date = DateTimeField(default=dt.datetime.utcnow)
-    modify_date = DateTimeField()
+    create_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
+    modify_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
 
     meta = {
         'ordering': ['-createdate']
@@ -109,8 +118,8 @@ class Reply(Document):
     #ReferenceField('Reply',reverse_delete_rule=CASCADE)
     # Line 68 is where you store all the info you need but won't find in the Course and Teacher Object
     text = StringField()
-    create_date = DateTimeField(default=dt.datetime.utcnow)
-    modify_date = DateTimeField()
+    create_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
+    modify_date = DateTimeField(default=dt.datetime.now(dt.timezone.utc))
 
     meta = {
         'ordering': ['-createdate']

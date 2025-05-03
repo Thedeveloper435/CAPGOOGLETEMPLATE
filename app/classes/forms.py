@@ -13,9 +13,11 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
-    role = SelectField('Role',choices=[("Player","Player"),("Team Captain","Team Captain")], validators=[DataRequired()]))
-    league_category = SelectField('League Category',choices=[("Rec","Rec"),("Comp","Comp"),("College", "College")], validators=[DataRequired()])
-    age = IntegerField('Age')
+    role = SelectField('Role', choices=[('Player', 'Player'), ('Captain', 'Team Captain'), ('Coach', 'Coach')])
+    league_category = SelectField('League Category',choices=[("Recreational","Recreational"),("Competition","Competition"),("College", "College")], validators=[DataRequired()])
+    age = IntegerField('Age', validators=[DataRequired()])
+    location = StringField('Location', validators=[DataRequired()])
+     
 
 class BlogForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
@@ -35,13 +37,44 @@ class ClinicForm(FlaskForm):
     zipcode = StringField('Zipcode',validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
+    location = StringField('Location')
+    availability = StringField('Availability', validators=[DataRequired()])
+    quality = StringField('Quality', validators=[DataRequired()])
+    capacity = IntegerField('Capacity', validators=[DataRequired()])
+    schedule = TextAreaField('Weekly schedule', validators=[DataRequired()])
+    image = FileField('Image')
 
+
+from wtforms import SelectField
 
 class ReviewForm(FlaskForm):
-    name = SelectField('Hospital Name',choices=[("Wilma Chan Highland Hospital","Wilma Chan Highland Hospital"),("Alta Bates Summit Medical Center","Alta Bates Summit Medical Center"), ("UCSF Benioff Children's Hospital", "UCSF Benioff Children's Hospital"), ("Kaiser Permanente", "Kaiser Permanente"), ("Fairmont Rehabilitation & Wellness", "Fairmont Rehabilitation & Wellness"), ("John George Psychiatric Pavilion", "John George Psychiatric Pavilion"), ("Alameda Hospital", "Alameda Hospital"), ("San Leandro Hospital","San Leandro Hospital")])
-    text = TextAreaField('Write your Review', validators=[DataRequired()])
-    subject = SelectField('Experiences',choices=[("Patient Care", "Patient Care"), ("Visitor","Visitor"),("Waiting Duration","Waiting Duration"), ("Internship/Leanring Programs", "Internship/Leanring Programs"), ("Volunteer", "Volunteer"), ("Patient", "Patient"), ("Hospitality", "Hospitality"), ("Other","Other")])
-    rating = IntegerField('Rate your experience: 0 is terrible, 10 is amazing', validators=[NumberRange(min=0,max=10, message="Enter a number between 0 and 10.")])
+    name = SelectField('Field Name', choices=[
+        ("Cesar Chavez Field", "Cesar Chavez Field"),
+        ("Alameda Point Soccer Field", "Alameda Point Soccer Field"),
+        ("SFF Soccer - Mission Bay Field", "SFF Soccer - Mission Bay Field"),
+        ("Oakland Roots Sports CLub", "Oakland Roots Sports CLub"),
+        ("Hampton Field", "Hampton Field"),
+        ("Tom Bates Regional Sports Complex", "Tom Bates Regional Sports Complex")
+    ])
+    
+    subject = SelectField('Experience Category', choices=[
+        ("Field Condition", "Field Condition"),
+        ("Booking Experience", "Booking Experience"),
+        ("Facilities", "Facilities"),
+        ("Staff", "Staff"),
+        ("Pricing", "Pricing"),
+        ("Other", "Other")
+    ]) 
+    
+    rating = SelectField('Rating', choices=[
+        ('1', '1 - Poor'),
+        ('2', '2 - Fair'),
+        ('3', '3 - Good'),
+        ('4', '4 - Very Good'),
+        ('5', '5 - Excellent')
+    ])
+    
+    text = TextAreaField('Description', validators=[DataRequired()])
     submit = SubmitField('Post Review')
 
 class ReplyForm(FlaskForm):

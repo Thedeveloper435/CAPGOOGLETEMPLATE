@@ -3,33 +3,47 @@
 {% block body %}
 
     <h1>Input New Clinic</h1>
-        <h4>If your clinic is not already in our database, add your clinic's info here for it to show up!</h4>
-        <!--List all errors in a group at the top-->
-        {% for field in form.errors %}
-            {% for error in form.errors[field] %}
-                <div class="alert alert-error">
-                    <strong>Error!</strong>{{field}}: {{error}}
-                </div>
-            {% endfor %}
-        {% endfor %}
-    <form method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.name.label }}<br>
-            {{ form.name(size=64) }}<br>
-        </p>
-        <p>
-            Street: {{ form.streetAddress(size=64) }}<br>
-            City: {{ form.city}} State: {{form.state}} Zipcode: {{form.zipcode}}
-        </p> 
-        <p>
-            {{ form.description.label }}<br>
-            {{ form.description(size=64) }}<br>
-        </p>
-        <p>
-            {{ form.submit() }}<br>
+    <h4>If your clinic is not already in our database, add your clinic's info here for it to show up!</h4>
 
+    <!-- List all form validation errors -->
+    {% for field in form.errors %}
+        {% for error in form.errors[field] %}
+            <div class="alert alert-danger">
+                <strong>Error!</strong> {{ field }}: {{ error }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <p>{{ form.name.label }}<br>{{ form.name(size=64) }}</p>
+
+        <p>
+            {{ form.streetAddress.label }}<br>{{ form.streetAddress(size=64) }}
         </p>
+        <p>
+            {{ form.city.label }}<br>{{ form.city(size=32) }}
+        </p>
+        <p>
+            {{ form.state.label }}<br>{{ form.state(size=2) }}
+        </p>
+        <p>
+            {{ form.zipcode.label }}<br>{{ form.zipcode(size=10) }}
+        </p>
+
+        <p>{{ form.description.label }}<br>{{ form.description(size=64) }}</p>
+        <p>{{ form.availability.label }}<br>{{ form.availability(size=64) }}</p>
+        <p>{{ form.quality.label }}<br>{{ form.quality(size=64) }}</p>
+        <p>{{ form.capacity.label }}<br>{{ form.capacity(size=10) }}</p>
+        <p>{{ form.schedule.label }}<br>{{ form.schedule(size=64) }}</p>
+
+        <p>{{ form.image.label }}<br>{{ form.image() }}</p>
+
+        <p>{{ form.lat.label }}<br>{{ form.lat() }}</p>
+        <p>{{ form.lon.label }}<br>{{ form.lon() }}</p>
+
+        <p>{{ form.submit() }}</p>
     </form>
 
 {% endblock %}

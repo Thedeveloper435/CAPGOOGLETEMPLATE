@@ -16,7 +16,7 @@ def clinicMap():
 
     clinics = Clinic.objects()
 
-    return render_template('cliniclocator.html',clinics=clinics)
+    return render_template('cliniclocator.html', clinics=clinics)
 
 @app.route('/clinic/list')
 @login_required
@@ -86,13 +86,12 @@ def clinicNew():
             zipcode = form.zipcode.data,
             description = form.description.data,
             author = current_user.id,
-            modifydate = dt.datetime.utcnow,
+            modifydate = dt.datetime.now(dt.timezone.utc),
         )
         newClinic.save()
 
         newClinic = updateLatLon(newClinic)
 
-        import requests
 
         return redirect(url_for('clinic',clinicID=newClinic.id))
 

@@ -12,53 +12,42 @@
 </div>
 
 {% if clinics %}
+    <div class="row border fw-bold">
+        <div class="col-1 border">Actions</div>
+        <div class="col-2 border">Date</div>
+        <div class="col-2 border">Name</div>
+        <div class="col-2 border">Address</div>
+        <div class="col-2 border">Description</div>
+        <div class="col-3 border">Lat / Lon</div>
+    </div>
+
     {% for clinic in clinics %}
         <div class="row border">
             <div class="col-1 border">
-                {% if loop.index == 1 %}
-                <h3 class="display-0.5"></h3>
-                {% endif %}
-
-                <a href="/clinic/delete/{{clinic.id}}">
-                    <img width="25" class="bottom-image" src="/static/delete.png">
+                <a href="/clinic/delete/{{ clinic.id }}">
+                    <img width="25" src="/static/delete.png" title="Delete Clinic">
                 </a>
-                <a href="/clinic/edit/{{clinic.id}}">
-                    <img width="25" class="bottom-image" src="/static/edit.png">
+                <a href="/clinic/edit/{{ clinic.id }}">
+                    <img width="25" src="/static/edit.png" title="Edit Clinic">
                 </a>
             </div>
             <div class="col-2 border">
-                {% if loop.index == 1 %}
-                <h3 class="display-0.5">Date</h3>
-                {% endif %}
-
-                <a href="/clinic/{{clinic.id}}">
-                    {{moment(clinic.createdate).calendar()}}
+                <a href="/clinic/{{ clinic.id }}">
+                    {{ moment(clinic.createdate).calendar() }}
                 </a>
             </div>
             <div class="col-2 border">
-                {% if loop.index == 1 %}
-                    <h3 class="display-0.5">Name</h3>
-                {% endif %}
-                {{clinic.name}}
+                {{ clinic.name }}
             </div>
             <div class="col-2 border">
-                {% if loop.index == 1 %}
-                    <h3 class="display-0.5">Address</h3>
-                {% endif %}
-                {{clinic.streetAddress}} <br>
-                {{clinic.city}}, {{clinic.sate}}  {{clinic.zip}}
+                {{ clinic.streetAddress }}<br>
+                {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}
             </div>
             <div class="col-2 border">
-                {% if loop.index == 1 %}
-                    <h3 class="display-0.5">Description</h3>
-                {% endif %}
-                {{clinic.description}}
+                {{ clinic.description }}
             </div>
             <div class="col-3 border">
-                {% if loop.index == 1 %}
-                    <h3 class="display-0.5">lat/lon</h3>
-                {% endif %}
-                {{clinic.lat}}/{{clinic.lon}}
+                {{ clinic.lat }} / {{ clinic.lon }}
             </div>
         </div>
     {% endfor %}

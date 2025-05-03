@@ -32,7 +32,7 @@ def reviewNew():
             rating = form.rating.data,
             author = current_user.id,
             # This sets the modifydate to the current datetime.
-            modify_date = dt.datetime.utcnow
+            modify_date = dt.datetime.now(dt.timezone.utc) 
         )
         # This is a method that saves the data to the mongoDB database.
         newReview.save()
@@ -103,7 +103,7 @@ def reviewEdit(reviewID):
             subject = form.subject.data,
             text = form.text.data,
             rating = form.rating.data,
-            modify_date = dt.datetime.utcnow
+            modify_date = dt.datetime.now(dt.timezone.utc) 
         )
         theseReplies = Reply.objects(Q(review=editReview) & Q(outer=True) & Q(dFromOuter=0))
         # After updating the document, send the user to the updated blog using a redirect.
