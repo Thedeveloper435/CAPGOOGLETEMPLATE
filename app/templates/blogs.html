@@ -2,43 +2,74 @@
 
 {% block body %}
 
-<div class="row">
-    <div class="col-4">
-        <h1 class="display-1">All Blogs</h1>
+{% if blog %}
+    <!-- Display Blog Information -->
+    <div style="font-size: 0.9rem; color:#333;">
+        <span>{{moment(blog.create_date).calendar()}} by {{blog.author.fname}} {{blog.author.lname}}</span>
+        {% if blog.modifydate %}
+            <span> | modified {{moment(blog.modifydate).calendar()}}</span>
+        {% endif %}
     </div>
-    <div class="col">
-        <a href="/blog/new" class="btn btn-primary btn-sm mt-5" role="button">New Blog</a>
-    </div>
-</div>
+    <br>
 
-{% if blogs %}
-    {% for blog in blogs %}
-        <div class="row border-bottom">
-            <div class="col-2">
-                {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
-                {% endif %}
-
-                <a href="/blog/{{blog.id}}">
-                    {{moment(blog.create_date).calendar()}}
-                </a>
-            </div>
-            <div class="col-2">
-                {% if loop.index == 1 %}
-                <h3 class="display-5">User</h3>
-                {% endif %}
-                {{blog.author.fname}} {{blog.author.lname}}
-            </div>
-            <div class="col">
-                {% if loop.index == 1 %}
-                    <h3 class="display-5">Subject</h3>
-                {% endif %}
-                {{blog.subject}}
-            </div>
+    <!-- Edit/Delete options for current user -->
+    {% if blog.author == current_user %}
+        <div>
+            <a data-toggle="tooltip" data-placement="top" title="Delete Blog" href="/blog/delete/{{blog.id}}">
+                <img width="25" src="/static/delete.png" alt="Delete Blog">
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Edit Blog" href="/blog/edit/{{blog.id}}">
+                <img width="25" src="/static/edit.png" alt="Edit Blog">
+            </a>
         </div>
-    {% endfor %}
+    {% endif %}
+
+    <!-- Blog Title and Content -->
+    <h2 class="display-5" style="font-size: 1.75rem; color:#30436c; font-family: Georgia, 'Times New Roman', Times, serif;">{{blog.subject}}</h2>
+    <p class="fs-4 text-break" style="font-size: 1rem; color: #444;">
+        {% if blog.author.image %}
+            <img width="100" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.author.image.read())}}">
+        {% endif %}
+        {{blog.content}} 
+        <br>
+        <span style="font-style: italic; color: #999;">{{blog.tag}}</span>
+    </p>
+    <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button" style="font-size: 1rem;">New Comment</a>
+
+    <!-- Display Comments -->
+    {% if comments %}
+        <h3 class="display-6" style="font-size: 1.5rem; color:#4b4691;">Comments</h3>
+        {% for comment in comments %}
+            <div class="border-bottom py-2">
+                <!-- Edit/Delete options for comments by the current user -->
+                {% if current_user == comment.author %}
+                    <a href="/comment/delete/{{comment.id}}" style="font-size: 1rem; color: #e74c3c;">
+                        <img width="20" src="/static/delete.png" alt="Delete Comment">
+                    </a>
+                    <a href="/comment/edit/{{comment.id}}" style="font-size: 1rem; color: #3498db;">
+                        <img width="20" src="/static/edit.png" alt="Edit Comment">
+                    </a>
+                {% endif %}
+                <div style="font-size: 0.9rem; color:#666;">
+                    <span>{{moment(comment.create_date).calendar()}} by {{comment.author.username}}</span>
+                    {% if comment.modifydate %}
+                        <span> | modified {{moment(comment.modifydate).calendar()}}</span>
+                    {% endif %}
+                </div>
+                <p class="fs-4" style="font-size: 1rem; color: #555;">
+                    {{comment.content}}
+                </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="text-center mt-3">
+            <h4>No Comments</h4>
+        </div>
+    {% endif %}
 {% else %}
-    <h1>No Blogs</h1>
+    <div class="text-center mt-3">
+        <h4>No Blog Found</h4>
+    </div>
 {% endif %}
 
 {% endblock %}

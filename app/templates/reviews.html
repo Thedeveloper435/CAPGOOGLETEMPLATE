@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
-
 {% block body %}
 <div class="row">
    <div class="col-4">
-       <h1 class="display-1" style="font-family:Georgia, 'Times New Roman', Times, serif ; color:#30436c">Recent Field Reviews</h1>
+       <h1 class="display-1" style="font-family:Georgia, 'Times New Roman', Times, serif ; color:#30436c; font-size: 2rem;">Recent Field Reviews</h1>
        <br><br>
    </div>
    <div class="col">
@@ -12,7 +11,6 @@
        <a href="/review/new" class="btn btn-primary btn-sm mt-5" role="button" style="font-family:Georgia, 'Times New Roman', Times, serif ; color:#ffffff; width:200px; height:50px; font-size: x-large;">Post a Review</a>
    </div>
 </div>
-
 
 {% if reviews %}
    {% for review in reviews %}
@@ -26,14 +24,12 @@
                </a>
            </div>
 
-
            <div class="col-3">
                {% if loop.index == 1 %}
                <center><h5 style="color:#125672">User</h5></center>
                {% endif %}
                <center><h6 style="color:#544cc2">{{ review.author.fname }} {{ review.author.lname }}</h6></center>
            </div>
-
 
            <div class="col-2">
                {% if loop.index == 1 %}
@@ -42,14 +38,12 @@
                <center><h6 style="color:#544cc2">{{ review.name }}</h6></center>
            </div>
 
-
            <div class="col-3">
                {% if loop.index == 1 %}
                <center><h5 style="color:#125672">Review</h5></center>
                {% endif %}
                <center><h6 style="color:#544cc2">{{ review.subject }}</h6></center>
            </div>
-
 
            <div class="col-2">
                {% if loop.index == 1 %}
@@ -64,6 +58,5 @@
        <h4>No reviews yet. Be the first to post about a field!</h4>
    </div>
 {% endif %}
-
 
 {% endblock %}
