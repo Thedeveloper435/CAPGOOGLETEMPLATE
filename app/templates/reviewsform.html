@@ -1,60 +1,110 @@
 {% extends "base.html" %}
 
+
 {% block body %}
-    <br><br>
-    <h1 class="review-title">Write a Review about your Experience!</h1>
-    <br><br>
+<br><br>
+<h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color: #30436c">
+   Share Your Experience at a Soccer Field!
+</h1>
+<br><br>
 
-    <!-- List all errors in a group at the top -->
-    {% for field in form.errors %}
-        {% for error in form.errors[field] %}
-            <div class="alert alert-error">
-                <strong>Error!</strong> {{ field }}: {{ error }}
-            </div>
-        {% endfor %}
-    {% endfor %}
 
-    <form method="post">
-        {{ form.hidden_tag() }}
-        
-        <!-- Name Field -->
-        <div class="form-group">
-            <label for="name">{{ form.name.label }}</label>
-            {{ form.name(class="form-control") }}
-            {% for error in form.name.errors %}
-                <span class="error-text">[{{ error }}]</span>
-            {% endfor %}
-        </div>
+<!-- Error Messages -->
+{% for field in form.errors %}
+   {% for error in form.errors[field] %}
+       <div class="alert alert-error">
+           <strong>Error!</strong> {{ field }}: {{ error }}
+       </div>
+   {% endfor %}
+{% endfor %}
 
-        <!-- Subject Field -->
-        <div class="form-group">
-            <label for="subject">{{ form.subject.label }}</label>
-            {{ form.subject(class="form-control") }}
-            {% for error in form.subject.errors %}
-                <span class="error-text">[{{ error }}]</span>
-            {% endfor %}
-        </div>
 
-        <!-- Review Text Area -->
-        <div class="form-group">
-            <label for="text">Write your Review...</label>
-            {{ form.text(class="form-control", cols=64, rows=10) }}
-            {% for error in form.text.errors %}
-                <span class="error-text">[{{ error }}]</span>
-            {% endfor %}
-        </div>
+<form method="post" class="bg-light p-4 rounded shadow-sm">
+   {{ form.hidden_tag() }}
 
-        <!-- Rating Field -->
-        <div class="form-group">
-            <label for="rating">Rate your experience: 0 is terrible, 10 is amazing</label>
-            {{ form.rating(class="form-control") }}
-            {% for error in form.rating.errors %}
-                <span class="error-text">[{{ error }}]</span>
-            {% endfor %}
-        </div>
 
-        <br>
-        <p role="button" class="submit-button">{{ form.submit() }}</p>
-    </form>
+   <div class="mb-4">
+       <label class="form-label" style="font-family:Georgia; color:#4b4691; font-size:x-large">Field Name</label>
+       {{ form.name(class="form-control") }}
+       {% for error in form.name.errors %}
+           <span style="color: red;">[{{ error }}]</span>
+       {% endfor %}
+   </div>
 
+
+   <div class="mb-4">
+       <label class="form-label" style="font-family:Georgia; color:#4b4691; font-size:x-large">Title of Your Review</label>
+       {{ form.subject(class="form-control") }}
+       {% for error in form.subject.errors %}
+           <span style="color: red;">[{{ error }}]</span>
+       {% endfor %}
+   </div>
+
+
+   <div class="mb-4">
+       <label class="form-label" style="font-family:Georgia; color:#4b4691; font-size:x-large">
+           How Was the Field? (describe the turf, lighting, crowd vibe, location, etc.)
+       </label>
+       {{ form.text(class="form-control", cols=64, rows=6) }}
+       {% for error in form.text.errors %}
+           <span style="color: red;">[{{ error }}]</span>
+       {% endfor %}
+   </div>
+
+
+   <div class="mb-4">
+       <label class="form-label" style="font-family:Georgia; color:#4b4691; font-size:x-large">
+           Surface Quality
+       </label>
+       <select name="surface_quality" class="form-select">
+           <option disabled selected>Select the surface quality</option>
+           <option value="Professional Turf">Professional Turf</option>
+           <option value="Well-kept Grass">Well-kept Grass</option>
+           <option value="Worn Grass">Worn Grass</option>
+           <option value="Dirt/Gravel">Dirt/Gravel</option>
+           <option value="Mixed Conditions">Mixed Conditions</option>
+       </select>
+   </div>
+
+
+   <div class="mb-4">
+       <label class="form-label" style="font-family:Georgia; color:#4b4691; font-size:x-large">
+           Crowd Capacity and Comfort
+       </label>
+       <input type="text" name="crowd_feedback" class="form-control" placeholder="Was there enough space? Benches? Shade? Porta-potties?">
+   </div>
+
+
+   <div class="mb-4">
+       <label class="form-label" style="font-family:Georgia; color:#4b4691; font-size:x-large">
+           Best Suited For
+       </label>
+       <select name="best_suited" class="form-select">
+           <option disabled selected>Select an option</option>
+           <option value="Youth Leagues">Youth Leagues</option>
+           <option value="High School Teams">High School Teams</option>
+           <option value="Adult Rec Leagues">Adult Rec Leagues</option>
+           <option value="Professional Practice">Professional Practice</option>
+           <option value="Pickup Games with Friends">Pickup Games with Friends</option>
+       </select>
+   </div>
+
+
+   <div class="mb-4">
+       <label class="form-label" style="font-family:Georgia; color:#4b4691; font-size:x-large">
+           Rate the Field (0 = Trashcan Tier, 10 = FIFA Final)
+       </label>
+       {{ form.rating(class="form-control", placeholder="Give it a number from 0 to 10") }}
+       {% for error in form.rating.errors %}
+           <span style="color: red;">[{{ error }}]</span>
+       {% endfor %}
+   </div>
+
+
+   <div class="mt-4">
+       <button type="submit" class="btn btn-primary btn-lg w-100">
+           Submit Review
+       </button>
+   </div>
+</form>
 {% endblock %}

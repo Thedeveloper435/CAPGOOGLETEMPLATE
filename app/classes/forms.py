@@ -71,6 +71,9 @@ class ReviewForm(FlaskForm):
     ("Soccer Field", "Soccer Field"),
     ("Elmhurst Soccer Field","Elmhurst Soccer Field"),
     ("Oakland Soccer Club", "Oakland Soccer Club")
+    ("Golden Gate Park Soccer Field","Golden Gate Park Soccer Field"),
+    ("Franklin Field", "Franklin Field"), 
+    ("UC Berkeley Recreational Sports", "UC Berkely Recreational Sports") 
 ])
 
 

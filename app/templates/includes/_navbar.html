@@ -1,50 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <div class="container-fluid mb-3">
-      <a class="navbar-brand" href="/">Home of maxandmayco app</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                  <a class="nav-link" href="/aboutus">About Us</a>  <!-- Added About Us link -->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/blogs">Blog</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/reviews">Review</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/clinic/map">Find Fields<Fieldset:disabled></Fieldset:disabled></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/clinic/list">List</a>
-              </li>
-          </ul>
-        </li>
-        <li>
-      </li> 
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom py-3">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold text-primary" href="/">CapstoneApp</a>
+ 
+ 
+    <!-- Toggle for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ 
+ 
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left side links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 border-end pe-3">
+        <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reviews">Review</a></li>
+        <li class="nav-item"><a class="nav-link" href="/clinic/map">Fields</a></li>
+        <li class="nav-item"><a class="nav-link" href="/clinic/list">List</a></li>
       </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+ 
+ 
+      <!-- Right side links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ps-3">
         {% if current_user.is_anonymous %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-
+            <a class="nav-link btn btn-outline-primary px-3 rounded-pill" href="{{ url_for('login') }}">Login</a>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="/myprofile">
-              {{ current_user.gname }} 
-            </a>
-            
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('logout') }}">Logout HERE</a>
+            <a class="nav-link text-primary fw-semibold" href="/myprofile">{{ current_user.gname }}</a>
           </li>
-          {% endif %}
-        </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-danger px-3 rounded-pill ms-2" href="{{ url_for('logout') }}">Logout</a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </div>
-</nav>  
+ </nav>
+    

@@ -1,9 +1,36 @@
-<!-- This is a blank template.  You can copy this to make a new template page. -->
+<!-- This is a blank template. You can copy this to make a new template page. -->
+
 
 {% extends 'base.html' %}
 
+
 {% block body %}
-<h1>Hello welcome to maycoandmax appp</h1>
-<img src="/static/meme.png" alt="Meme Man" width="150">
-<br><br><br>
+<div class="container mt-5">
+ <h1 class="text-center mb-4">Looking for a Soccer Field to Practice and Play?</h1>
+ <h3 class="text-center text-muted mb-5">You're in the right place. Our app helps you find nearby fields, join games, and connect with local players!</h3>
+
+
+ <div class="text-center">
+   <img src="https://www.aturf.com/wp-content/uploads/2021/11/sahlens-flash-field-corner-kick-sunset-listing.jpg" alt="Soccer field at sunset" class="img-fluid rounded shadow" width="900">
+ </div>
+
+
+ <hr class="my-5">
+
+
+ <div class="row text-center">
+   <div class="col-md-4 mb-4">
+     <h4 class="fw-bold">Find Fields Nearby</h4>
+     <p>Use your location to instantly discover available soccer fields near you — whether it’s a public park, school, or community center.</p>
+   </div>
+   <div class="col-md-4 mb-4">
+     <h4 class="fw-bold">Book or Drop In</h4>
+     <p>Check field availability in real time. Reserve a field for your group or find pickup games that welcome new players.</p>
+   </div>
+   <div class="col-md-4 mb-4">
+     <h4 class="fw-bold">Connect with Players</h4>
+     <p>Create a profile, build your team, or join others who love the game just as much as you do. Soccer is more fun with friends!</p>
+   </div>
+ </div>
+</div>
 {% endblock %}

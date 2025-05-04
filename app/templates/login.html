@@ -1,31 +1,48 @@
-{% extends "base.html" %}
+
 
 {% block body %}
-    <div class="container">
-        <h1>Login</h1>
-        {% for field in form.errors %}
-            {% for error in form.errors[field] %}
-                <div class="alert alert-error">
-                    <strong>Error!</strong>{{field}}: {{error}}
-                </div>
-            {% endfor %}
-        {% endfor %}
-        <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+<div class="container mt-5" style="max-width: 600px;">
+   <h1 class="mb-4 text-center">Login to Your Account</h1>
 
-        <form method=post>
-            {{ form.hidden_tag() }}
-            <table class="table">
-            <tr><th>Username</th><th>{{form.username}}</th></tr>
-            <tr><th>password</th><th>{{form.password}}</th></tr>
-            <tr><th>Remember Me?</th><th>{{form.remember_me}}</th></tr>
-            <tr><td colspan="2">{{form.submit()}}</td></tr>
-        </table>
-        </form>
 
-        <p>
-            Forgot Your Password?
-            <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
-        </p>
-        
-    </div>
+   {% for field in form.errors %}
+       {% for error in form.errors[field] %}
+           <div class="alert alert-danger">
+               <strong>Error:</strong> {{ field }} - {{ error }}
+           </div>
+       {% endfor %}
+   {% endfor %}
+
+
+   <p class="text-center">
+       New here?
+       <a href="{{ url_for('register') }}">Create an account</a>
+   </p>
+
+
+   <form method="post" class="mt-4">
+       {{ form.hidden_tag() }}
+       <div class="mb-3">
+           <label for="username" class="form-label">Username</label>
+           {{ form.username(class="form-control", id="username") }}
+       </div>
+       <div class="mb-3">
+           <label for="password" class="form-label">Password</label>
+           {{ form.password(class="form-control", id="password") }}
+       </div>
+       <div class="form-check mb-3">
+           {{ form.remember_me(class="form-check-input", id="remember_me") }}
+           <label class="form-check-label" for="remember_me">Remember Me</label>
+       </div>
+       <div class="d-grid">
+           {{ form.submit(class="btn btn-primary") }}
+       </div>
+   </form>
+
+
+   <p class="mt-3 text-center">
+       <a href="{{ url_for('reset_password_request') }}">Forgot your password?</a>
+   </p>
+</div>
 {% endblock %}
+

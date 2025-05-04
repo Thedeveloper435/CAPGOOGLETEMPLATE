@@ -1,58 +1,148 @@
 {% extends 'base.html' %}
 
+
 {% block body %}
 
-<div class="row">
-    <div class="col-4">
-        <h1 class="display-1">All Clinics</h1>
-    </div>
-    <div class="col">
-        <a href="/clinic/new" class="btn btn-primary btn-sm mt-5" role="button">New Clinic</a>
-    </div>
+
+<div class="container my-5">
+   <h1 class="text-center mb-4">Available Soccer Fields</h1>
+
+
+   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+       <!-- Field 1 -->
+       <div class="col">
+           <div class="card h-100 shadow-sm border-0">
+               <img src="https://www.fogcityjournal.com/wordpress/wp-content/plugins/2014/06/nightlights_beach_chalet.jpg" class="card-img-top rounded-top" alt="Golden Gate Park Soccer Field">
+               <div class="card-body">
+                   <h5 class="card-title">Golden Gate Park Soccer Field</h5>
+                   <p class="card-text">
+                       <strong>Address:</strong><br>
+                       Golden Gate Park, San Francisco, CA 94122
+                   </p>
+                   <p class="card-text">
+                       Located in the heart of San Francisco’s greenest landmark, this field blends nature with competition. With seating for up to 150 spectators and room for approximately 50 players on the sidelines, it’s ideal for weekend tournaments, youth leagues, and city rec games. The turf is soft yet fast—just like your game should be. Great for SFYSA matches, intramural leagues, or just that 9v9 game you organized over group chat 10 minutes ago.
+                   </p>
+               </div>
+           </div>
+       </div>
+
+
+       <!-- Field 2 -->
+       <div class="col">
+           <div class="card h-100 shadow-sm border-0">
+               <img src="https://www.sacbee.com/latest-news/kjeek6/picture254246163/alternates/LANDSCAPE_1140/SAC_xm08FOOTsacHS010158.JPG" class="card-img-top rounded-top" alt="Franklin Field">
+               <div class="card-body">
+                   <h5 class="card-title">Franklin Field</h5>
+                   <p class="card-text">
+                       <strong>Address:</strong><br>
+                       Sacramento High School, Sacramento, CA 95818
+                   </p>
+                   <p class="card-text">
+                       This field serves as a hub for high school athletes and weekend warriors alike. It accommodates 22 players on the pitch and 60+ on the sidelines. Whether it’s high school league finals or casual rec games, Franklin Field brings structure with a homey twist. Features include well-kept natural grass, shaded bleachers (yes, actual shade!), and easy parking. Perfect for CalYouth League, adult Sunday leagues, or anyone who still thinks they’re one call away from MLS.
+                   </p>
+               </div>
+           </div>
+       </div>
+
+
+       <!-- Field 3 -->
+       <div class="col">
+           <div class="card h-100 shadow-sm border-0">
+               <img src="https://recwell.berkeley.edu/wp-content/uploads/2019/10/Fields-Schedules-Header_Maxwell_1140x380.jpg
+               " class="card-img-top rounded-top" alt="UC Berkeley Recreational Sports Field">
+               <div class="card-body">
+                   <h5 class="card-title">UC Berkeley Recreational Sports Field</h5>
+                   <p class="card-text">
+                       <strong>Address:</strong><br>
+                       UC Berkeley Campus, Berkeley, CA 94720
+                   </p>
+                   <p class="card-text">
+                       This well-lit artificial turf field can host everything from intramural matches to competitive club league games. Up to 100 spectators can comfortably gather along the sidelines. You’ll often find the field buzzing with Cal intramural playoffs, NorCal Club League matches, and international student friendlies. Whether you’re prepping for finals or just need a break from them, this field makes sure your footwork is as sharp as your GPA.
+                   </p>
+               </div>
+           </div>
+       </div>
+
+
+       <!-- Field 4 -->
+       <div class="col">
+           <div class="card h-100 shadow-sm border-0">
+               <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nozHRrahyJtEero4vbPoxowc-Nzc9f3OT86xYrSAaCmd1HsBspz98AYcf7rhuFUdU_g6WjDXow6N5jWC7lmECuOe-jwlzGGaKZ61bo8l7Ih_g4i3GWEK9paSjqrN5C2NgFSc3Y=s1360-w1360-h1020-rw
+               " class="card-img-top rounded-top" alt="LA Galaxy Soccer Center">
+               <div class="card-body">
+                   <h5 class="card-title">LA Galaxy Soccer Center</h5>
+                   <p class="card-text">
+                       <strong>Address:</strong><br>
+                       18400 Avalon Blvd, Carson, CA 90746
+                   </p>
+                   <p class="card-text">
+                       A world-class training center with professional-grade turf and seating for up to 200 fans. Home to youth academies and semi-pro teams, the Galaxy Center is perfect for US Club Soccer leagues, tryouts, and advanced training camps. If you hear echoes of “Vamos!” and “Man on!”, you're in the right place. Bonus: You might catch a glimpse of an actual Galaxy player. No promises, though.
+                   </p>
+               </div>
+           </div>
+       </div>
+
+
+       <!-- Field 5 -->
+       <div class="col">
+           <div class="card h-100 shadow-sm border-0">
+               <img src="https://rjmdesigngroup.com/wp-content/uploads/2022/02/IMG_3260-scaled.jpg" class="card-img-top rounded-top" alt="Santa Monica Public Field">
+               <div class="card-body">
+                   <h5 class="card-title">Santa Monica Public Field</h5>
+                   <p class="card-text">
+                       <strong>Address:</strong><br>
+                       2600 Ocean Park Blvd, Santa Monica, CA 90405
+                   </p>
+                   <p class="card-text">
+                       This breezy, ocean-side field has seating for around 80, space for full 11v11 games, and unmatched vibes. Great for youth games, beach-town leagues, or that one friend group that always says “Let’s play soccer!” but only shows up with 7 people. Clean restrooms, casual pickup every Thursday, and street parking that’s surprisingly reasonable for Santa Monica. You’re practically scoring goals in paradise.
+                   </p>
+               </div>
+           </div>
+       </div>
+
+
+       <!-- Field 6 -->
+       <div class="col">
+           <div class="card h-100 shadow-sm border-0">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Pioneer_Stadium_field_4.JPG" class="card-img-top rounded-top" alt="East Bay Soccer Club">
+               <div class="card-body">
+                   <h5 class="card-title">East Bay Soccer Club</h5>
+                   <p class="card-text">
+                       <strong>Address:</strong><br>
+                       1001 Foothill Blvd, Oakland, CA 94606
+                   </p>
+                   <p class="card-text">
+                       This private club field includes two side-by-side playing areas, each with top-tier turf, field lighting, and spectator benches. Hosting over 200 players and fans during tournaments, it’s used by the East Bay Premier League, youth travel teams, and women's semi-pro squads. Coaches love the clean setup. Players love the fast pace. Parents love the food trucks that sometimes park nearby. Everyone wins.
+                   </p>
+               </div>
+           </div>
+       </div>
+
+
+       <!-- Field 7 -->
+       <div class="col">
+           <div class="card h-100 shadow-sm border-0">
+               <img src="https://gostanford.com/imgproxy/bCEexbR5BPz3sxjiZwjX0IqciR4Uclrxdsy8bOrS7uQ/rs:fit:1980:0:0/g:ce/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N0YW5mb3JkLXByb2QvMjAyNC8wNi8xMi9zUHRiOHd5eTZXZ1M5VjZUOU5ITmFhMlQ4WXliODV5NFQxbG9mYW1OLmpwZw.jpg
+               " class="card-img-top rounded-top" alt="Stanford University Field">
+               <div class="card-body">
+                   <h5 class="card-title">Stanford University Field</h5>
+                   <p class="card-text">
+                       <strong>Address:</strong><br>
+                       641 Campus Dr, Stanford, CA 94305
+                   </p>
+                   <p class="card-text">
+                       Where future engineers and pro athletes both sweat it out. This elite pitch fits 100 spectators and 22 competitive souls on-field, with impeccable turf and the serenity only a Silicon Valley campus can offer. Ideal for college showcase events, intercollegiate friendlies, and that one alumnus who takes rec league just a little too seriously. Bonus: Smart soccer banter is encouraged.
+                   </p>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+   <div class="text-center" id="noFieldsMessage" style="display: none;">
+       <p>No soccer fields available at the moment.</p>
+   </div>
 </div>
 
-{% if clinics %}
-    <div class="row border fw-bold">
-        <div class="col-1 border">Actions</div>
-        <div class="col-2 border">Date</div>
-        <div class="col-2 border">Name</div>
-        <div class="col-2 border">Address</div>
-        <div class="col-2 border">Description</div>
-        <div class="col-3 border">Lat / Lon</div>
-    </div>
-
-    {% for clinic in clinics %}
-        <div class="row border">
-            <div class="col-1 border">
-                <a href="/clinic/delete/{{ clinic.id }}">
-                    <img width="25" src="/static/delete.png" title="Delete Clinic">
-                </a>
-                <a href="/clinic/edit/{{ clinic.id }}">
-                    <img width="25" src="/static/edit.png" title="Edit Clinic">
-                </a>
-            </div>
-            <div class="col-2 border">
-                <a href="/clinic/{{ clinic.id }}">
-                    {{ moment(clinic.createdate).calendar() }}
-                </a>
-            </div>
-            <div class="col-2 border">
-                {{ clinic.name }}
-            </div>
-            <div class="col-2 border">
-                {{ clinic.streetAddress }}<br>
-                {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}
-            </div>
-            <div class="col-2 border">
-                {{ clinic.description }}
-            </div>
-            <div class="col-3 border">
-                {{ clinic.lat }} / {{ clinic.lon }}
-            </div>
-        </div>
-    {% endfor %}
-{% else %}
-    <h1>No Clinics</h1>
-{% endif %}
 
 {% endblock %}
