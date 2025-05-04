@@ -13,8 +13,7 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
-    role = SelectField('Role', choices=[('Player', 'Player'), ('Captain', 'Team Captain'), ('Coach', 'Coach')])
-    league_category = SelectField('League Category',choices=[("Recreational","Recreational"),("Competition","Competition"),("College", "College")], validators=[DataRequired()])
+    role = SelectField('Role', choices=[('Player', 'Player'), ('Coach', 'Coach'), ('Club Admin', 'Club Admin'), ('Parent', 'Parent'), ('Trainer', 'Trainer')])
     age = IntegerField('Age', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
      

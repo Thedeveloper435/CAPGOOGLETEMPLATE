@@ -41,13 +41,7 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>
-            {{ form.league_category.label }}<br>
-            {{ form.league_category() }}<br>
-            {% for error in form.league_category.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+       
         <p>
             {{ form.age.label }}<br>
             {{ form.age() }}<br>

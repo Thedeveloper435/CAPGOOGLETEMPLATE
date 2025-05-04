@@ -34,7 +34,6 @@ class User(UserMixin, Document):
     image = FileField()
     prononuns = StringField()
     role = StringField()
-    league_category = StringField()
     location = StringField()
     age = IntField()
 

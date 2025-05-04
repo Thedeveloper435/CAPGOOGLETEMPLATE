@@ -35,7 +35,6 @@ def profileEdit():
             fname = form.fname.data,
             role = form.role.data,
             age = form.age.data,
-            league_category = form.league_category.data,
             location = form.location.data
         )
 
@@ -55,7 +54,6 @@ def profileEdit():
     form.lname.data = current_user.lname
     form.role.data = current_user.role
     form.age.data = current_user.age
-    form.league_category.data = current_user.league_category
     form.location.data = current_user.location
 
     return render_template('profileform.html', form=form)
