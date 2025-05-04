@@ -48,16 +48,33 @@ class ClinicForm(FlaskForm):
 from wtforms import SelectField
 
 class ReviewForm(FlaskForm):
-    name = SelectField('Field Name', choices=[
-        ("Cesar Chavez Field", "Cesar Chavez Field"),
-        ("Alameda Point Soccer Field", "Alameda Point Soccer Field"),
-        ("SFF Soccer - Mission Bay Field", "SFF Soccer - Mission Bay Field"),
-        ("Oakland Roots Sports CLub", "Oakland Roots Sports CLub"),
-        ("Hampton Field", "Hampton Field"),
-        ("Tom Bates Regional Sports Complex", "Tom Bates Regional Sports Complex")
-    ])
-    
-    subject = SelectField('Experience Category', choices=[
+   name = SelectField('Field Name', choices=[
+    ("Cesar Chavez Field", "Cesar Chavez Field"),
+    ("Alameda Point Soccer Field", "Alameda Point Soccer Field"),
+    ("SFF Soccer - Mission Bay Field", "SFF Soccer - Mission Bay Field"),
+    ("Hampton Field", "Hampton Field"),
+    ("Tom Bates Regional Sports Complex", "Tom Bates Regional Sports Complex"),
+    ("Chabot College Soccer Field", "Chabot College Soccer Field"),
+    ("William Payne Field", "William Payne Field"),
+    ("Livermore Community Park", "Livermore Community Park"),
+    ("Laney College Soccer Field", "Laney College Soccer Field"),
+    ("Crocker Amazon Soccer Field", "Crocker Amazon Soccer Field"),
+    ("Burrell Field", "Burrell Field"),
+    ("Richard H. Sheridan Soccer Field", "Richard H. Sheridan Soccer Field"),
+    ("Alden E. Oliver Sports Park", "Alden E. Oliver Sports Park"),
+    ("San Pablo Park", "San Pablo Park"),
+    ("Maxwell Family Field", "Maxwell Family Field"),
+    ("Mather Sports Center North Soccer Field", "Mather Sports Center North Soccer Field"),
+    ("Street Soccer USA","Street Soccer USA"),
+    ("South Sunset Soccer Fields", "South Sunset Soccer Fields"),
+    ("Beach Chalet Athletic Fields", "Beach Chalet Athletic Fields"),
+    ("Soccer Field", "Soccer Field"),
+    ("Elmhurst Soccer Field","Elmhurst Soccer Field"),
+    ("Oakland Soccer Club", "Oakland Soccer Club")
+])
+
+
+   subject = SelectField('Experience Category', choices=[
         ("Field Condition", "Field Condition"),
         ("Booking Experience", "Booking Experience"),
         ("Facilities", "Facilities"),
@@ -66,17 +83,17 @@ class ReviewForm(FlaskForm):
         ("Other", "Other")
     ]) 
     
-    rating = SelectField('Rating', choices=[
+   rating = SelectField('Rating', choices=[
         ('1', '1 - Poor'),
         ('2', '2 - Fair'),
         ('3', '3 - Good'),
         ('4', '4 - Very Good'),
         ('5', '5 - Excellent')
     ])
-    
-    text = TextAreaField('Description', validators=[DataRequired()])
-    submit = SubmitField('Post Review')
+   text = TextAreaField('Your Review', validators=[DataRequired()])
+   submit = SubmitField('Post Review')
 
 class ReplyForm(FlaskForm):
     text = TextAreaField('Reply', validators=[DataRequired()])
     submit = SubmitField('Post')
+

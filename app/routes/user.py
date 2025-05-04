@@ -4,7 +4,6 @@ from flask_login import current_user
 from flask import render_template, redirect, flash, url_for
 from app.classes.data import User
 from app.classes.forms import ProfileForm
-from flask_login import current_user
 
 # These routes and functions are for accessing and editing user profiles.
 
@@ -57,6 +56,7 @@ def profileEdit():
     form.role.data = current_user.role
     form.age.data = current_user.age
     form.league_category.data = current_user.league_category
+    form.location.data = current_user.location
 
     return render_template('profileform.html', form=form)
 
